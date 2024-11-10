@@ -1,9 +1,5 @@
-import sys
 import mysql.connector
 from mysql.connector import Error
-
-
-
 
 def Create_connection():
     """Creates and returns a connection to the MySQL database."""
@@ -14,7 +10,7 @@ def Create_connection():
             port = "3306",
             username = "root",
             password = "siddhesh2241",
-            database = "new_titanic"
+            database = "house_price"
         )
 
         return connection
