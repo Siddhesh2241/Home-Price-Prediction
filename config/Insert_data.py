@@ -1,4 +1,4 @@
-from config.database_conn import Create_connection
+from CONFIG.Database_conn import Create_connection
 
 def insert_data(bedrooms, bathrooms, sqft_living, sqft_lot, floors, waterfront, view, condition,
                 grade, sqft_above, sqft_basement, yr_built, yr_renovated, zipcode, lat, long, 
@@ -10,35 +10,29 @@ def insert_data(bedrooms, bathrooms, sqft_living, sqft_lot, floors, waterfront, 
     cursor = conn.cursor()
 
     sql = """
-        INSERT INTO house_data (
-            bedrooms, bathrooms, sqft_living, sqft_lot, floors, waterfront, view, 
-            condition, grade, sqft_above, sqft_basement, yr_built, yr_renovated, 
-            zipcode, lat, long, sqft_living15, sqft_lot15,prediction
-        ) VALUES (
-            %(bedrooms)s, %(bathrooms)s, %(sqft_living)s, %(sqft_lot)s, %(floors)s, %(waterfront)s, %(view)s,
-            %(condition)s, %(grade)s, %(sqft_above)s, %(sqft_basement)s, %(yr_built)s, %(yr_renovated)s,
-            %(zipcode)s, %(lat)s, %(long)s, %(sqft_living15)s, %(sqft_lot15)s, %(prediction)s
-        );
+        INSERT INTO house_data (bedrooms, bathrooms, sqft_living, sqft_lot, floors, waterfront, view, `condition`, grade, sqft_above, sqft_basement, yr_built, yr_renovated, zipcode, lat, `long`, sqft_living15, sqft_lot15, prediction)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+
     """
-    values = {"bedrooms": bedrooms,
-        "bathrooms": bathrooms,
-        "sqft_living": sqft_living,
-        "sqft_lot": sqft_lot,
-        "floors": floors,
-        "waterfront": waterfront,
-        "view": view,
-        "condition": condition,
-        "grade": grade,
-        "sqft_above": sqft_above,
-        "sqft_basement": sqft_basement,
-        "yr_built": yr_built,
-        "yr_renovated": yr_renovated,
-        "zipcode": zipcode,
-        "lat": lat,
-        "long": long,
-        "sqft_living15": sqft_living15,
-        "sqft_lot15": sqft_lot15,
-        "prediction": prediction}
+    values = (bedrooms,
+         bathrooms,
+         sqft_living,
+         sqft_lot,
+         floors,
+         waterfront,
+         view,
+         condition,
+         grade,
+         sqft_above,
+         sqft_basement,
+         yr_built,
+         yr_renovated,
+         zipcode,
+         lat,
+         long,
+         sqft_living15,
+         sqft_lot15,
+         prediction)
 
     try:
         # Execute the insertion
