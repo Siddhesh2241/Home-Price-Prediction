@@ -1,8 +1,9 @@
-# House Price Prediction App
+# 🏠 House Price Prediction App
 
-This repository contains a Streamlit web application for predicting house prices based on various features such as square footage, location, number of bedrooms, and more. The app leverages a pre-trained machine learning model to make predictions and stores data in a MySQL database.
+This repository contains a 🌐 Streamlit web application for predicting house prices based on various features like square footage, location, number of bedrooms, and more! 
+The app uses a pre-trained machine learning model and stores data in a MySQL database for efficient record-keeping.
 
-## Table of Contents
+## 📑Table of Contents
 
 *  Overview
 *  Project Structure
@@ -14,7 +15,7 @@ This repository contains a Streamlit web application for predicting house prices
 *  Configuration
 *  Acknowledgements
 
-## Project Structure
+## 🛠 Project Structure
 
 * **app.py** : Main application file that runs the Streamlit web app.
 * **CONFIG/Database_conn.py** : Contains the function Create_connection to connect to the MySQL database.
@@ -22,7 +23,7 @@ This repository contains a Streamlit web application for predicting house prices
 * **notebook/Model/RandomRegressor_model.pkl** : Pre-trained model file.
 * **requirements.txt** : List of dependencies required for the project.
 
-## Installation
+## ⚙️ Installation
 
 * Clone the repository:
   ```bash
@@ -37,7 +38,7 @@ This repository contains a Streamlit web application for predicting house prices
 
 * Place the pre-trained model file RandomRegressor_model.pkl in the notebook/Model directory.
 
-## Usage
+## 🚀 Usage
 
 * Run the app locally
  ```bash
@@ -45,36 +46,38 @@ This repository contains a Streamlit web application for predicting house prices
  ```
 This will open a local server where you can interact with the app by inputting house details and receiving a price prediction.
 
-## Data Description
+## 📊 Data Description
 
 **The app uses the following input features for prediction**
 
-* bedrooms: Number of bedrooms
-* bathrooms: Number of bathrooms
-* sqft_living: Living area in square feet
-* sqft_lot: Lot area in square feet
-* floors: Number of floors
-* waterfront: Indicator if the house is on the waterfront (0 = No, 1 = Yes)
-* view: View score (0–4)
-* condition: Condition score (1–5)
-* grade: Grade (1–13)
-* sqft_above: Above-ground living area in square feet
-* sqft_basement: Basement area in square feet
-* yr_built: Year built
-* yr_renovated: Year renovated (0 if never renovated)
-* zipcode: Zip code
-* lat: Latitude
-* long: Longitude
-* sqft_living15: Average living area of nearby homes
-* sqft_lot15: Average lot area of nearby homes
+* 🛏bedrooms: Number of bedrooms
+* 🚽bathrooms: Number of bathrooms
+* 📐sqft_living: Living area in square feet
+* 🏞sqft_lot: Lot area in square feet
+* 🏢floors: Number of floors
+* 🌊waterfront: Indicator if the house is on the waterfront (0 = No, 1 = Yes)
+* 👀view: View score (0–4)
+* 🔧condition: Condition score (1–5)
+* 📈grade: Grade (1–13)
+* 📏sqft_above: Above-ground living area in square feet
+* 🛠sqft_basement: Basement area in square feet
+* 🏗yr_built: Year built
+* 🛠yr_renovated: Year renovated (0 if never renovated)
+* 📍zipcode: Zip code
+* 🌎lat: Latitude
+* 🌐long: Longitude
+* 🏠sqft_living15: Average living area of nearby homes
+* 🌳sqft_lot15: Average lot area of nearby homes
 
-## Model Training
+## 🧠 Model Training
 
-The model used in this application is a Random Forest Regressor, 
-trained on housing data similar to the famous King County housing dataset. 
-The model is saved in the file RandomRegressor_model.pkl.
+The model used in this application is a Random Forest Regressor 🌳🌲, 
+trained on housing data similar to the King County housing dataset. 
+The model file RandomRegressor_model.pkl is pre-trained and included in this repository.
 
-## MySQL Database Integration
+If you’d like to retrain or update the model, refer to additional notebooks in the notebook/ directory.
+
+## 🗄️ MySQL Database Integration
 The app includes an integration with MySQL to store input data along with the predicted house prices.
 The table schema used for storing data is
 
@@ -102,7 +105,22 @@ CREATE TABLE house_data (
     prediction FLOAT
 );
 ```
+## 🛠 Configuring the Database
+Update your database connection details in CONFIG/Database_conn.py
 
-## Acknowledgements
-This project is inspired by machine learning regression tasks, similar to predicting housing prices as seen in datasets like the King County Housing dataset. 
-Special thanks to the open-source community for providing tools like Streamlit and MySQL integration with Python.
+```bash
+def Create_connection():
+    conn = mysql.connector.connect(
+        host="your-host",
+        user="your-username",
+        password="your-password",
+        database="your-database"
+    )
+    return conn
+```
+Ensure the MySQL server is running and create the database if it doesn’t already exist.
+
+## 🌟Acknowledgements
+Special thanks to the open-source community for providing tools like Streamlit and MySQL integration with Python!
+This project is inspired by the housing price prediction tasks, 
+leveraging datasets like the King County Housing dataset. 😊💻
