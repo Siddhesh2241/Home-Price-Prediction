@@ -46,7 +46,7 @@ if st.button("Predict House Price"):
     prediction = model.predict(input_data)[0]
     
     # Display the prediction
-    st.subheader(f"Predicted House Price: ${prediction:,.2f}")
+    st.subheader(f"Predicted House Price: {prediction:,.2f}")
     
     # Store input and prediction in database
     try:
