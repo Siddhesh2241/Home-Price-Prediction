@@ -9,7 +9,7 @@ def Create_connection():
             host = "127.0.0.1",
             port = "3306",
             username = "root",
-            password = "siddhesh2241",
+            password = "------",
             database = "house_price"
         )
 
